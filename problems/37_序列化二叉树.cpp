@@ -12,53 +12,40 @@ struct TreeNode {
             val(x), left(NULL), right(NULL) {
     }
 };
-class Solution{
+class Codec {
 public:
-    char *Serialize(TreeNode* root){
-        if(!root) return NULL;
-        string str;
-        SerializeCore(root, str);
-        int length = str.length();
-        char* res = new char[length + 1];
-        for(int i = 0; i < length; ++i){
-            res[i] = str[i];
-        }
-        res[length] = '\0';
-        return res;
+
+    // Encodes a tree to a single string.
+    string serialize(TreeNode* root) {
+        ostringstream out;
+        serialize(root, out);
+        return out.str();
     }
-    void SerializeCore(TreeNode* root, string& str){
-        if(!root){
-            str += '#';
-            str += ',';
+
+    // Decodes your encoded data to tree.
+    TreeNode* deserialize(string data) {
+        istringstream in(data);
+        return deserialize(in);
+    }
+
+private:
+    void serialize(TreeNode* root, ostringstream& out){
+        if(root == nullptr){
+            out<<"# ";
             return;
         }
-        string tmp = to_string(root->val);
-        str += tmp;
-        str += ',';
-        SerializeCore(root->left, str);
-        SerializeCore(root->right, str);
+        out<<root->val<<" ";
+        serialize(root->left, out);
+        serialize(root->right, out);
     }
 
-    TreeNode* Deserialize(char* str){
-        if(!str) return NULL;
-        string s(str);
-        TreeNode* res = DeserializeCore(s);
-        return res;
-    }
-    TreeNode* DeserializeCore(string& s){
-        if(s.empty()){
-            return NULL;
-        }
-        if(s[0] == '#'){
-            s = s.substr(2);
-            return NULL;
-        }
-
-        TreeNode* root = new TreeNode(stoi(s));
-
-        s = s.substr(s.find_first_of(',') + 1);
-        root->left = DeserializeCore(s);
-        root->right = DeserializeCore(s);
+    TreeNode* deserialize(istringstream& in){
+        string val;
+        in>>val;
+        if(val == "#") return nullptr;
+        TreeNode* root = new TreeNode(stoi(val));
+        root->left = deserialize(in);
+        root->right = deserialize(in);
         return root;
     }
 };
