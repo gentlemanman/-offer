@@ -1,47 +1,41 @@
 #include <bits/stdc++.h>
 using namespace std;
-class Solution {
+class MedianFinder {
 public:
-    void Insert(int num)
-    {
-        // 已有数据偶数，插入大顶堆
-        if(((max.size() + min.size()) & 1) == 0){
-            if(max.size() > 0 && num < max[0]){
-                max.push_back(num);
-                push_heap(max.begin(), max.end(), less<int>());
-                num = max[0];
-                pop_heap(max.begin(), max.end(), less<int>());
-                max.pop_back();
+    /** initialize your data structure here. */
+    MedianFinder() {
+
+    }
+
+    void addNum(int num) {
+        if((small.size()+large.size()) % 2 == 0){
+            if(!large.empty() && num >= *large.begin()){
+                large.insert(num);
+                num = *large.begin();
+                large.erase(large.begin());
             }
-            min.push_back(num);
-            push_heap(min.begin(), min.end(), greater<int>());
+            small.insert(num);
         }
         else{
-            if(min.size() > 0 && num > min[0]){
-                min.push_back(num);
-                push_heap(min.begin(), min.end(), greater<int>());
-                num = min[0];
-                pop_heap(min.begin(), min.end(), greater<int>());
-                min.pop_back();
+            if(!small.empty() && num <= *small.rbegin()){
+                small.insert(num);
+                num = *small.rbegin();
+                small.erase((--small.end()));
             }
-            max.push_back(num);
-            push_heap(max.begin(), max.end(), less<int>());
+            large.insert(num);
         }
     }
 
-    double GetMedian()
-    {
-        int size = min.size() + max.size();
-        if(size == 0) return 0;
-        if((size & 1) == 0){
-            return (min[0] + max[0]) / 2.0;
+    double findMedian() {
+        int size = small.size() + large.size();
+        if(size % 2 == 0){
+            return (*small.rbegin() + *large.begin()) / 2.0;
         }
         else{
-            return min[0];
+            return *small.rbegin();
         }
     }
 
 private:
-    vector<int> min;
-    vector<int> max;
+    multiset<int> small, large;
 };
