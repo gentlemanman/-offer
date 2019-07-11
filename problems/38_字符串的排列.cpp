@@ -30,6 +30,6 @@ int main(){
     vector<string> ans = Permutation("aa");
     for(auto i : ans)
         cout<<i<<endl;
-    cout<<"½áÊø"<<endl;
+    cout<<"Â½Ã¡ÃŠÃ¸"<<endl;
     return 0;
 }
