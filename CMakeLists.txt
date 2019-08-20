@@ -3,4 +3,4 @@ project(offer)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(offer problems/37_序列化二叉树.cpp)
+add_executable(offer main.cpp)

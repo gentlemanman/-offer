@@ -1,8 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/offer.dir/problems/36_二叉搜索树与双向链表.cpp.o"
-  "CMakeFiles/offer.dir/problems/37_序列化二叉树.cpp.o"
+  "CMakeFiles/offer.dir/main.cpp.obj"
   "offer.pdb"
-  "offer"
+  "offer.exe"
+  "offer.exe.manifest"
+  "liboffer.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

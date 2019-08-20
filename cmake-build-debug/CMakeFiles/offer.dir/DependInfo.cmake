@@ -4,10 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/zh/CLionProjects/剑指offer/problems/36_二叉搜索树与双向链表.cpp" "/Users/zh/CLionProjects/剑指offer/cmake-build-debug/CMakeFiles/offer.dir/problems/36_二叉搜索树与双向链表.cpp.o"
-  "/Users/zh/CLionProjects/剑指offer/problems/37_序列化二叉树.cpp" "/Users/zh/CLionProjects/剑指offer/cmake-build-debug/CMakeFiles/offer.dir/problems/37_序列化二叉树.cpp.o"
+  "E:/Clion/JZ_offer/-offer/main.cpp" "E:/Clion/JZ_offer/-offer/cmake-build-debug/CMakeFiles/offer.dir/main.cpp.obj"
   )
-set(CMAKE_CXX_COMPILER_ID "AppleClang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

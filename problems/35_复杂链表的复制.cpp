@@ -57,3 +57,26 @@ public:
         return ReconnectNodes(pHead);
     }
 };
+
+class CopyListWithRandom {
+public:
+    RandomListNode* Clone(RandomListNode* pHead)
+    {
+        if(pHead == NULL)
+            return NULL;
+        map<RandomListNode*, RandomListNode*> myMap;
+        RandomListNode* cur = pHead;
+        while(cur != NULL){
+            myMap.insert(pair<RandomListNode*, RandomListNode*>(cur, new RandomListNode(cur->value)));
+            cur = cur->next;
+        }
+        cur = pHead;
+        while(cur != NULL){
+            myMap[cur]->next = myMap[cur->next];
+            myMap[cur]->random = myMap[cur->random];
+            cur = cur->next;
+        }
+
+        return myMap[pHead];
+    }
+};
