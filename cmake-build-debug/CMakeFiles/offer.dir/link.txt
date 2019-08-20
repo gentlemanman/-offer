@@ -1,3 +1,1 @@
-"D:\Software\Develop\Clion\CLion 2019.1\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\offer.dir/objects.a
-D:\Software\Develop\MinGW-W64\mingw64\bin\ar.exe cr CMakeFiles\offer.dir/objects.a @CMakeFiles\offer.dir\objects1.rsp
-D:\Software\Develop\MinGW-W64\mingw64\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\offer.dir/objects.a -Wl,--no-whole-archive  -o offer.exe -Wl,--out-implib,liboffer.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\offer.dir\linklibs.rsp
+/Library/Developer/CommandLineTools/usr/bin/c++  -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/offer.dir/main.cpp.o  -o offer 
