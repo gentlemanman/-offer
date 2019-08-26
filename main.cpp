@@ -1,43 +1,35 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
-#include <string>
-#include <unordered_map>
+#include <set>
 using namespace std;
 
-struct TreeNode {
-    int val;
-    struct TreeNode *left;
-    struct TreeNode *right;
-    TreeNode(int x) :
-            val(x), left(NULL), right(NULL) {
-    }
-};
-
-void dfs(TreeNode* root, int target, vector<int>& tmp, vector<vector<int>>& ans){
-    if(!root->left && !root->right){
-        if(target == root->val){
-            tmp.push_back(root->val);
-            ans.push_back(tmp);
-            tmp.pop_back();
+void dfs(vector<int>& a, vector<int>& tmp, int idx, int m, set<int>& s){
+    if(tmp.size() == m){
+        for(int i = 1; i < tmp.size(); ++i){
+            s.insert(tmp[i] - tmp[i - 1]);
         }
         return;
     }
-
-    tmp.push_back(root->val);
-    if(root->left) dfs(root->left, target-root->val, tmp, ans);
-    if(root->right) dfs(root->right, target-root->val, tmp, ans);
-    tmp.pop_back();
+    for(int i = idx; i < a.size(); ++i){
+        tmp.push_back(a[idx]);
+        dfs(a, tmp, idx + 1, m, s);
+        tmp.pop_back();
+    }
 }
-
-vector<vector<int>> FindPath(TreeNode* root, int target){
-    vector<int> tmp;
-    vector<vector<int>> ans;
-    dfs(root, target, tmp, ans);
-    return ans;
-}
-
 
 int main()
 {
+    int n, m;
+    cin>>n>>m;
+    vector<int> a(n, 0);
+    for(int i = 0; i < n; ++i){
+        int t;
+        cin>>t;
+        a[i] = t;
+    }
+    vector<int> tmp;
+    set<int> s;
+    dfs(a, tmp, 0, m, s);
+    cout<<*s.rbegin()<<endl;
+    return 0;
 }

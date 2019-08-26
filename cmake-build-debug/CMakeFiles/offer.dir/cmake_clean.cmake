@@ -1,7 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/offer.dir/main.cpp.o"
+  "CMakeFiles/offer.dir/main.cpp.obj"
   "offer.pdb"
-  "offer"
+  "offer.exe"
+  "offer.exe.manifest"
+  "liboffer.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.
