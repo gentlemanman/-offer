@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/zh/CLionProjects/剑指offer/-offer/main.cpp
+iostream
+-
+vector
+-
+algorithm
+-
+string
+-
+unordered_map
+-
+
