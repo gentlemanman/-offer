@@ -1,3 +1,4 @@
+// 数组中只出现一次的两个数字，其它都出现两次
 #include <iostream>
 #include <vector>
 using namespace std;
